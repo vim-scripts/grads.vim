@@ -1,0 +1,7 @@
+GrADS Script syntax highlighting and indentation rules.
+Dec 31 2011
+
+Instructions:
+
+Copy (or symlink) syntax/ and indent/ folders into ~/.vim/
+
