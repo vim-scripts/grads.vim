@@ -1,6 +1,6 @@
 " GrADS indent file
-" Language:	grads (GrADS Scripts)
-" Maintainer:	Unicornio
+" Language:	grads (Grads Scripts)
+" Maintainer:	Unicornio <uniccornio@hotmail.com>
 " Last Change:	Nov 13 2011
 " Remark:	Modified Matlab file
 

@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	grads (GrADS scripts)
-" Maintainer:	Unicornio
-" Last Change:	Nov 19, 2011
-" Remark:	Complete syntax. Modified default grads.vim file
+" Maintainer:	Unicornio <uniccornio@hotmail.com>
+" Last Change:	Jan 12, 2012
+" Remark:	Complete syntax
 
 " Grid Analysis and Display System (GrADS); http://grads.iges.org/grads
 
@@ -66,8 +66,10 @@ syn region gradsFnBlk transparent matchgroup=gradsStatement
 " Strings and parenthesis
 syn region gradsParent transparent matchgroup=Normal
 			\ start="(" end=")" oneline
+" ... Removing matchgroup=Normal will highlight the single quotes:
 syn region gradsString matchgroup=Normal
 			\ start=+'+ end=+'+ contains=gradsShell oneline
+" ... Removing matchgroup=Normal will highlight the double quotes:
 syn region gradsString matchgroup=Normal
 			\ start=+"+ end=+"+ contains=gradsShell oneline
 
@@ -83,7 +85,7 @@ syn match gradsOperator "|\|&\|!\(=\)\@!\|%"
 " Variables
 syn keyword gradsFixVariables result rc
 syn match gradsGlobalVariables "\<_\w\+\>"
-syn match gradsCompVariables "\(\<\h\+\w*\.\)\@<=\w\+\>"
+syn match gradsCompVariables "\<\(\h\w*\.\(\w\+\.\)*\)\@<=\w\+\>"
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
