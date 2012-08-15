@@ -1,8 +1,8 @@
 " Vim syntax file
 " Language:	grads (GrADS scripts)
-" Maintainer:	Unicornio <uniccornio@hotmail.com>
-" Last Change:	Jan 12, 2012
-" Remark:	Complete syntax
+" Maintainer:	Unicornio <unicornio@outlook.com>
+" Last Change:	Aug 15, 2012
+" Remark:
 
 " Grid Analysis and Display System (GrADS); http://grads.iges.org/grads
 
@@ -23,7 +23,7 @@ syn match gradsCommand "\<ga->\s.\+$" contained
 syn match gradsShell "\(\w\+\s*\)\@<!\!" contained
 syn keyword gradsTodo TODO FIXME XXX contained
 syn keyword gradsElse else contained
-syn match gradsWeb "\<\(http://\|ftp://\|www\.\)\w\+\([\./]\w*\)\+\>" contained
+syn match gradsWeb "\<\(http://\|ftp://\|www\.\)[A-Za-z0-9_~]\+\([\./][A-Za-z0-9_~]*\)\+\>" contained
 syn match gradsEmail "\<\w\+\(\.\w*\)*\(@\|\s*<at>\s*\)\w\+\(\.\w\+\)\+\>" contained
 
 " Comments
@@ -32,7 +32,7 @@ syn match gradsComment "^[\*#].*$"
 
 " Keywords
 syn keyword gradsStatement exit return say print prompt pull read write close
-syn match gradsFunction "\(\<function\>\)\@<=\s*\h\w*" 
+syn match gradsFunction "\(\<function\>\)\@<=\s*\h\w*"
 syn keyword gradsBuiltin
 			\ subwrd sublin substr strlen wrdpos gsfallow gsfpath
 			\ math_sin math_cos math_tan math_asin math_acos
@@ -42,8 +42,8 @@ syn keyword gradsBuiltin
 			\ math_sqrt math_abs math_exp math_fmod math_mod
 			\ math_strlen valnum
 
-" Right margin at column 79 
-syn match gradsRightMargin ".\%>80v"
+" Right margin at column 79
+"syn match gradsRightMargin ".\%>80v"
 
 " Errors
 syn match gradsError "['\"()\[\]{}\t]"
@@ -66,21 +66,26 @@ syn region gradsFnBlk transparent matchgroup=gradsStatement
 " Strings and parenthesis
 syn region gradsParent transparent matchgroup=Normal
 			\ start="(" end=")" oneline
-" ... Removing matchgroup=Normal will highlight the single quotes:
+" ... Commenting one of two next lines will turn on/off the highlight of '':
+"syn region gradsString
 syn region gradsString matchgroup=Normal
 			\ start=+'+ end=+'+ contains=gradsShell oneline
-" ... Removing matchgroup=Normal will highlight the double quotes:
+" ... Commenting one of two next lines will turn on/off the highlight of "":
+"syn region gradsString
 syn region gradsString matchgroup=Normal
 			\ start=+"+ end=+"+ contains=gradsShell oneline
 
-" Numbers
-syn match gradsNumber "\<\%([1-9]\d*\|0\)\>"
-syn match gradsNumber "\<\d\+[eE][+-]\=\d\+\>"
-syn match gradsFloat "\<\d\+\.\%([eE][+-]\=\d\+\)\=\%(\s\|$\)\@="
-syn match gradsFloat "\%(^\|\s\|-\)\@<=\d*\.\d\+\%([eE][+-]\=\d\+\)\=\>"
-
 " Operator
 syn match gradsOperator "|\|&\|!\(=\)\@!\|%"
+
+" Errors for C programmers
+syn match gradsError "&&\+\|||\+\|==\+"
+
+" Numbers
+syn match gradsNumber "\<\([1-9]\+\d*\|0\)\>"
+syn match gradsNumber "\<\d\+[eE][+-]\=\d\+\>"
+syn match gradsFloat "\(^\|\s\|-\)\@<=\.\d\+\([eE][+-]\=\d\+\)\="
+syn match gradsFloat "\<\d\+\.\d*\([eE][+-]\=\d\+\)\=\([^a-zA-Z_]\|$\)\@="
 
 " Variables
 syn keyword gradsFixVariables result rc

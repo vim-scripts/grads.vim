@@ -1,5 +1,6 @@
 This is a mirror of http://www.vim.org/scripts/script.php?script_id=3862
 
-This file contains an update of the default grads.vim syntax file (with complete syntax) and indentation rules for GrADS script language.
+This file contains an update of the default grads.vim syntax file and indentation rules for GrADS script language.
+Includes syntax support for CTL files.
 
 For an overview of GrADS, you can visit http://www.iges.org/grads/
