@@ -1,0 +1,12 @@
+Copy or symlink the content in this folder to:
+
+syntax/*        -->     ~/.vim/syntax/
+indent/*        -->     ~/.vim/indent/
+filetype.vim    -->     ~/.vim
+
+If filetype.vim exists, add this line:
+
+au BufRead,BufNewFile *.ctl setfiletype ctl
+
+Into the block "augroup filetypedetect" of your ~/.vim/filetype.vim file
+

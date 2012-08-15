@@ -2,7 +2,7 @@
 " Language:	grads (GrADS scripts)
 " Maintainer:	Unicornio <unicornio@outlook.com>
 " Last Change:	Aug 15, 2012
-" Remark:
+" Remark:	Complete syntax
 
 " Grid Analysis and Display System (GrADS); http://grads.iges.org/grads
 
